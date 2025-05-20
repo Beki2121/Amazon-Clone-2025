@@ -4,13 +4,35 @@
     margin-top: 20px;
     justify-content: center;
   }
+  .container div:not(.subtotal){
+    height: auto !important;
+  }
   .container img{
     width: 100% !important;
   }
   .cart_container {
     padding: 20px;
   }
+  .cart_product {
+    display: flex;
+    gap: 10px;
+  }
   
+  .btn_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+  }
+  
+  .btn {
+    padding: 5px 16px;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: #fff;
+    border: none;
+  }
   .cart_container h2,
   .cart_container h3 {
     padding: 10px;
