@@ -80,7 +80,7 @@ function Cart() {
               </small>
             </span>
             <Link
-              to="/payment"
+              to="/payments"
               style={{
                 display: "inline-block",
                 marginTop: "20px",

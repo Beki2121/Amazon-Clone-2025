@@ -25,6 +25,9 @@
     align-items: center;
     gap: 5px;
   }
+  .btn:hover{
+    background-color: var(--primary-color);
+  }
   
   .btn {
     padding: 5px 16px;

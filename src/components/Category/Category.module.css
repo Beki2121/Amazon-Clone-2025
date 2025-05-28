@@ -1,32 +1,60 @@
-.category{
-    height: 350px;
-    width: 350px;
-    background-color: white;
-    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+/* Base Styles for Category Card */
+.category {
+  height: 350px;
+  /* Make card responsive to its grid cell */
+  width: 100%;
+  max-width: 350px; /* Limit max width for large screens */
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  display: flex; /* Use flexbox for internal alignment */
+  flex-direction: column;
+  justify-content: space-between; /* Distribute space vertically */
+  padding-bottom: 10px; /* Padding at the bottom for content */
+  /* Crucial: Include padding and border in the element's total width/height */
+  box-sizing: border-box;
 }
-.category img{
-    width: 100%;
-    object-fit: contain;
-    max-height: 250PX;
-    padding: 0px 10px;
+
+.category img {
+  width: 100%;
+  object-fit: contain;
+  max-height: 250px;
+  padding: 0 10px;
+  flex-grow: 1; /* Allows image to take available space */
+  /* Crucial: Include padding and border in the element's total width/height */
+  box-sizing: border-box;
 }
-.category a{
-    text-decoration: none;
-    color: rgb(35,35,35);
+
+.category a {
+  text-decoration: none;
+  color: rgb(35, 35, 35);
+  display: flex; /* Make the entire link a flex container */
+  flex-direction: column;
+  height: 100%; /* Ensure the link takes full height of the card */
 }
-.category h2, .catagory p{
-    padding: 5px;
-    margin-left: 15px;
+
+.category h2 {
+  padding: 5px;
+  margin-left: 15px;
+  font-size: 1.2rem; /* Use rem for scalable font sizes */
+  margin-bottom: 5px; /* Space between title and image/shop now */
 }
-.category p{
-    font-size: 12px;
-    font-weight: bold;
-    color: rgb(9,132,209);
+
+.category p {
+  padding: 5px;
+  margin-left: 15px;
+  font-size: 0.8rem; /* Use rem for scalable font sizes */
+  font-weight: bold;
+  color: rgb(9, 132, 209);
+  margin-top: auto; /* Pushes "Shop now" to the bottom */
 }
-.category__container{
-    position: relative;
-    margin-top: -10%;
-    display: grid;
-    grid-template-columns: repeat(4,1fr);
-    place-items: center;
+
+/* Base Styles for Category Container */
+.category__container {
+  position: relative;
+  margin-top: -10%; 
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 20px; 
+  place-items: center; 
+  max-width: 1600px; 
 }

@@ -6,9 +6,10 @@ import { BiCart } from "react-icons/bi";
 import LowerHeader from "./LowerHeader";
 import { Link } from "react-router-dom";
 import { DataContext } from "../DataProvider/DataProvider";
+import {auth} from "../../Utility/firebase"
 
 const Header = () => {
-  const [{ basket }, dispatch] = useContext(DataContext);
+  const [{user, basket }, dispatch] = useContext(DataContext);
   const totalItem = basket?.reduce((amount, item) => {
     return item.amount + amount;
   },0);
@@ -41,22 +42,33 @@ const Header = () => {
               <option value="">All</option>
             </select>
             <input type="text" id="" placeholder="Search Product" />
-            <BsSearch size={24} />
+            <BsSearch size={37} />
           </div>
           {/* right side link */}
           <div className={classes.order__container}>
             <Link t0="" className={classes.language}>
               <img
-                src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a4/Flag_of_the_United_States.svg/1200px-Flag_of_the_United_States.svg.png"
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Flag_of_Ethiopia.svg/1024px-Flag_of_Ethiopia.svg.png"
                 alt=""
               />
               <select name="" id="">
-                <option value="">EN</option>
+                <option value="">ET</option>
               </select>
             </Link>
-            <Link to="/auth">
-              <p>Sign In</p>
-              <span>Account & Lists</span>
+            <Link to={!user && "/auth"}>
+              <div>
+                {user ? (
+                  <>
+                    <p>Hello {user?.email?.split("@")[0]}</p>
+                    <span onClick={() => auth.signOut()}>sign Out</span>
+                  </>
+                ) : (
+                  <>
+                    <p>Hello, Sign In</p>
+                    <span>Account & Lists</span>
+                  </>
+                )}
+              </div>
             </Link>
             <Link to="/orders">
               <p>Returns</p>
@@ -65,6 +77,7 @@ const Header = () => {
             <Link to="/cart" className={classes.cart}>
               <BiCart size={35} />
               <span>{totalItem}</span>
+              cart
             </Link>
           </div>
         </div>

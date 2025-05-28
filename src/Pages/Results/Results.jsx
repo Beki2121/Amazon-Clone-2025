@@ -11,6 +11,7 @@ function Results() {
   const [results, setResults] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const { categoryName } = useParams();
+  console.log(categoryName);
 
   useEffect(() => {
     setIsLoading(true);
@@ -24,7 +25,7 @@ function Results() {
         console.log(err);
         setIsLoading(false);
       });
-  }, [categoryName]);
+  }, []);
 
   return (
     <LayOut>
